@@ -28,5 +28,18 @@ interface RiakModelInterface {
      */
     public function setBucket($bucket);
 
+    /**
+     * Get data as array
+     * @return array
+     */
+    public function getData();
+
+    /**
+     * setData
+     * @param array $data
+     * @return $this
+     */
+    public function setData($data = []);
+
 
 }

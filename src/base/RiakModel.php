@@ -14,7 +14,6 @@ namespace ivoglent\phpriak\base;
 
 use Basho\Riak;
 use ivoglent\phpriak\interfaces\RiakModelInterface;
-use yii\db\ActiveRecord;
 
 abstract class RiakModel implements RiakModelInterface
 {
@@ -24,19 +23,61 @@ abstract class RiakModel implements RiakModelInterface
     private $key = '';
     /** @var  Riak $riak */
     private $riak;
+
+    /**
+     * @var array
+     */
+    private $config = [
+        'host' => 'localhost',
+        'port' => 8098
+    ];
+
     public $dns;
 
+    private $_data = [];
 
-    public function __construct() {
+
+    public function __construct($config = []) {
+        if (!empty($config)) {
+            $this->config = array_merge($this->config, $config);
+        }
         $this->riak = $this->getRiakInstance();
         $this->bucket = new Riak\Bucket($this->getBucketName());
+    }
+
+    public function __set($name, $value) {
+        if (in_array($name, $this->attributes())) {
+            $this->_data[$name] = $value;
+        }
+    }
+
+    public function __get($name) {
+        if (array_key_exists($name, $this->_data)) {
+            return $this->_data[$name];
+        }
+        return FALSE;
+    }
+
+    public function __call($name, $arguments) {
+        if (method_exists($this,$name)) {
+            return call_user_func([$this, $name], $arguments);
+        }
+        if (substr($name, 0, 3) == 'set') {
+            $attr = strtolower(substr($name, 3));
+            $this->$attr = $arguments;
+            return $this;
+        }
+        if (substr($name, 0, 3) == 'get') {
+            $attr = strtolower(substr($name, 3));
+            return $this->$attr;
+        }
     }
 
     private function getRiakInstance(){
         if (empty($this->riak)) {
             $nodes = (new Riak\Node\Builder())
-                    ->atHost('localhost')
-                    ->onPort(8098)
+                    ->atHost($this->config['host'])
+                    ->onPort($this->config['port'])
                     ->build();
             $this->riak = new Riak([$nodes]);
         }
@@ -52,13 +93,20 @@ abstract class RiakModel implements RiakModelInterface
         return $data;
     }
 
+    public function setData($data = []) {
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        }
+        return $this;
+    }
+
     /**
      * save
      * @param bool $runValidation
      * @param null $attributeNames
      * @return bool
      */
-    public function save($runValidation = TRUE, $attributeNames = NULL, $insert = TRUE) {
+    public function save() {
         $response = (new \Basho\Riak\Command\Builder\StoreObject($this->riak))
             ->buildBucket($this->getBucketName())
             ->buildJsonObject($this->getData())
@@ -70,12 +118,17 @@ abstract class RiakModel implements RiakModelInterface
     }
 
 
+    /**
+     * findOne
+     * @param $condition
+     * @return RiakModelInterface
+     */
     public static function findOne($condition) {
-        $self = new static();
+        /*$self = new static();
         $response = (new \Basho\Riak\Command\Builder\FetchObject())
             ->buildLocation('rufus', 'users')
             ->build()
-            ->execute();
+            ->execute();*/
     }
 
 

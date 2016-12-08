@@ -24,6 +24,7 @@ class DataTest extends \PHPUnit_Framework_TestCase{
         print "Creating data object : " . json_encode($data->getData()) . PHP_EOL;
         $data->save();
         $this->key = $data->getKey();
+        print "Key : {$this->key}" . PHP_EOL;
         return $this->assertNotEmpty($this->key);
     }
 
