@@ -27,7 +27,7 @@
   },
   "autoload" : {
     "psr-4" : {
-      "ivoglenr\\yiiriak\\" : "src"
+      "ivoglent\\yiiriak\\" : "src"
     }
   },
   "minimum-stability" : "dev",
