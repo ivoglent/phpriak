@@ -30,8 +30,8 @@
       "ivoglent\\yiiriak\\" : "src"
     },
     "classmap": [
-      "composer_packages/yiisoft/yii/framework/YiiBase.php",
-      "composer_packages/yiisoft/yii/framework/yii.php"
+      "vendor/yiisoft/yii/framework/YiiBase.php",
+      "vendor/yiisoft/yii/framework/yii.php"
     ]
   },
   "minimum-stability" : "dev",
