@@ -11,11 +11,14 @@ namespace ivoglent\yiiriak\tests;
 
 
 use ivoglent\yiiriak\tests\models\File;
-
 class FileTest extends \PHPUnit_Framework_TestCase{
 
     public function testAddNewFile(){
-        $file = new  File();
-        return $this->assertSame('a','b','We need A');
+        \Yii::getLogger()->log('Test');
+        $file = new  File([
+            'dns' => 'http://localhost:8098/riak'
+        ]);
+        $file->save();
+        return $this->assertNotEmpty($file->getKey());
     }
 }

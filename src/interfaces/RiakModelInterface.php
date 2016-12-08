@@ -31,10 +31,5 @@ interface RiakModelInterface {
      * @return array
      */
     public function listAttributes();
-
-    /**
-     * Set attributes array
-     * @return $this
-     */
-    public function setAttributes();
+    
 }

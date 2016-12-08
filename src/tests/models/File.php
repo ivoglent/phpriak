@@ -11,7 +11,6 @@ namespace ivoglent\yiiriak\tests\models;
 
 
 use ivoglent\yiiriak\FileModel;
-use ivoglent\yiiriak\interfaces\RiakModelInterface;
 
 class File extends FileModel{
     
