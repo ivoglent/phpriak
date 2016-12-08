@@ -4,27 +4,27 @@
  * To help store file into riak database
  * Created by Long Nguyen.
  * Contact: ivoglent@gmail.com
- * Project: YiiRiak
+ * Project: phpriak
  * Date: 08/12/2016
  * Time: 09:47
  * Version : 1.0.1
  */
 
-namespace ivoglent\yiiriak;
+namespace ivoglent\phpriak;
 
 
-use ivoglent\yiiriak\base\RiakModel;
+use ivoglent\phpriak\base\RiakModel;
 
 abstract class FileModel extends RiakModel
 {
-    protected $bucket = 'files';
+    const BUCKET_NAME= 'files';
     /**
      * Get bucket name
      * @return string
      */
-    public function getBucket() {
+    public function getBucketName() {
         // TODO: Implement getBucket() method.
-        return $this->bucket;
+        return self::BUCKET_NAME;
     }
 
     /**
@@ -46,7 +46,7 @@ abstract class FileModel extends RiakModel
 
     /**
      * Set data model releated to this file
-     * @param \ivoglent\yiiriak\DataModel $dataModel
+     * @param \ivoglent\phpriak\DataModel $dataModel
      */
     public function setDataModel(DataModel $dataModel){
         $this->dataModel = $dataModel;
@@ -54,7 +54,7 @@ abstract class FileModel extends RiakModel
 
     /**
      * Get related data model
-     * @return \ivoglent\yiiriak\DataModel | null
+     * @return \ivoglent\phpriak\DataModel | null
      */
     public function getDataModel(){
         return $this->dataModel;

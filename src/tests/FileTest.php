@@ -7,14 +7,16 @@
  * Time: 10:23
  */
 
-namespace ivoglent\yiiriak\tests;
+namespace ivoglent\phpriak\tests;
 
 
-use ivoglent\yiiriak\tests\models\File;
+use ivoglent\phpriak\tests\models\File;
+use yii\BaseYii;
+
 class FileTest extends \PHPUnit_Framework_TestCase{
 
     public function testAddNewFile(){
-        \Yii::getLogger()->log('Test');
+        //BaseYii::getLogger()->log('Test');
         $file = new  File([
             'dns' => 'http://localhost:8098/riak'
         ]);

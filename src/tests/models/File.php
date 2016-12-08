@@ -7,10 +7,10 @@
  * Time: 10:31
  */
 
-namespace ivoglent\yiiriak\tests\models;
+namespace ivoglent\phpriak\tests\models;
 
 
-use ivoglent\yiiriak\FileModel;
+use ivoglent\phpriak\FileModel;
 
 class File extends FileModel{
     

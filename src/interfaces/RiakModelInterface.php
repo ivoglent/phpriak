@@ -3,21 +3,23 @@
  * Riak Database Model Interface
  * Created by Long Nguyen.
  * Contact: ivoglent@gmail.com
- * Project: YiiRiak
+ * Project: phpriak
  * Date: 08/12/2016
  * Time: 09:47
  * Version : 1.0.1
  */
 
-namespace ivoglent\yiiriak\interfaces;
+namespace ivoglent\phpriak\interfaces;
 
+
+use Basho\Riak\Bucket;
 
 interface RiakModelInterface {
     /**
      * Get bucket name
-     * @return string
+     * @return Bucket
      */
-    public function getBucket();
+    public function getBucketName();
 
     /**
      * Set bucket name
@@ -26,10 +28,5 @@ interface RiakModelInterface {
      */
     public function setBucket($bucket);
 
-    /**
-     * Get attributes array
-     * @return array
-     */
-    public function listAttributes();
-    
+
 }

@@ -1,13 +1,12 @@
 {
-  "name" : "ivoglent/yiiriak",
-  "description" : "Riak driver for yii2",
-  "type" : "yii2-extension",
+  "name" : "ivoglent/phpriak",
+  "description" : "Riak driver for php",
+  "type" : "library",
   "authors" : [{
     "name" : "Ivoglent Nguyen",
     "email" : "ivoglent@gmail.com"
   }],
   "keywords" : [
-    "yii2",
     "riak",
     "nosql",
     "riakcs"
@@ -22,17 +21,12 @@
   },
   "require-dev" : {
     "phpunit/phpunit" : "3.7.*",
-    "phpunit/php-invoker" : ">=1.1",
-    "yiisoft/yii2" : "dev-master"
+    "phpunit/php-invoker" : ">=1.1"
   },
   "autoload" : {
     "psr-4" : {
-      "ivoglent\\yiiriak\\" : "src"
-    },
-    "classmap": [
-      "vendor/yiisoft/yii/framework/YiiBase.php",
-      "vendor/yiisoft/yii/framework/yii.php"
-    ]
+      "ivoglent\\phpriak\\" : "src"
+    }
   },
   "minimum-stability" : "dev",
   "config" : {
