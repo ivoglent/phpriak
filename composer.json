@@ -20,8 +20,7 @@
     "basho/riak" : "*"
   },
   "require-dev" : {
-    "phpunit/phpunit" : "3.7.*",
-    "phpunit/php-invoker" : ">=1.1"
+    "phpunit/phpunit" : "3.7.*"
   },
   "autoload" : {
     "psr-4" : {
