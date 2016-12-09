@@ -5,10 +5,14 @@
  * With structure based on key-value pair
  * Created by Long Nguyen.
  * Contact: ivoglent@gmail.com
- * Project: phpriak
- * Date: 08/12/2016
- * Time: 09:47
- * Version : 1.0.1
+ * @package ivoglent\phpriak
+ * @category  none
+ * @author  longnguyen
+ * @license none
+ * @link none
+ * @date: 08/12/2016
+ * @time: 09:47
+ * @version : 1.0.1
  */
 
 namespace ivoglent\phpriak;

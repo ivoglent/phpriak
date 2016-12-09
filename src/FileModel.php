@@ -4,10 +4,14 @@
  * To help store file into riak database
  * Created by Long Nguyen.
  * Contact: ivoglent@gmail.com
- * Project: phpriak
- * Date: 08/12/2016
- * Time: 09:47
- * Version : 1.0.1
+ * @package ivoglent\phpriak
+ * @category  none
+ * @author  longnguyen
+ * @license none
+ * @link none
+ * @date: 08/12/2016
+ * @time: 09:47
+ * @version : 1.0.1
  */
 
 namespace ivoglent\phpriak;
@@ -68,6 +72,12 @@ abstract class FileModel extends RiakModel
         return $contents;
     }
 
+    /**
+     * save
+     * @return bool|string
+     * Overide base class to help model store binary file
+     *
+     */
     public function save() {
         $object = (new \Basho\Riak\Object($this->getFileContents($this->file)))->setContentEncoding("binary")->setContentType($this->fileInfo['mime']);
         $response = (new \Basho\Riak\Command\Builder\StoreObject($this->riak))
@@ -83,10 +93,22 @@ abstract class FileModel extends RiakModel
         return FALSE;
     }
 
+    /**
+     * getFile
+     * @return mixed
+     * return binary content of file
+     */
     public function getFile(){
         return $this->fileData;
     }
 
+    /**
+     * load
+     * @param $key
+     * @return $this|null
+     * @throws \ivoglent\phpriak\base\RiakModelException
+     * Find file by given key
+     */
     public function load($key) {
         if (empty($key)) {
             throw new RiakModelException("Invalid key");
