@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2016 by Mobivi.
+ * Copyright © 2016 by Orderaw.
  * Created by Long Nguyen.
  * User: longnguyen
  * Date: 08/12/2016
@@ -13,7 +13,7 @@ namespace ivoglent\phpriak\tests\models;
 use ivoglent\phpriak\FileModel;
 
 class File extends FileModel{
-    
+   
     /**
      * Get attributes array
      * @return array

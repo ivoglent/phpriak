@@ -17,5 +17,21 @@ namespace ivoglent\phpriak;
 use ivoglent\phpriak\base\RiakModel;
 
 abstract class DataModel extends RiakModel{
-    
+    const BUCKET_NAME = 'data';
+    /**
+     * Get bucket name
+     * @return Bucket
+     */
+    public function getBucketName() {
+        return self::BUCKET_NAME;
+    }
+
+    /**
+     * Set bucket name
+     * @param string $bucket
+     * @return $this
+     */
+    public function setBucket($bucket) {
+        $this->bucket = $bucket;
+    }
 }

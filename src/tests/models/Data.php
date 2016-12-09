@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2016 by Mobivi.
+ * Copyright © 2016 by Orderaw.
  * Created by Long Nguyen.
  * User: longnguyen
  * Date: 08/12/2016
@@ -30,22 +30,7 @@ use ivoglent\phpriak\interfaces\RiakModelInterface;
 class Data extends DataModel
 {
     const BUCKET_NAME = 'data';
-    /**
-     * Get bucket name
-     * @return Bucket
-     */
-    public function getBucketName() {
-        return self::BUCKET_NAME;
-    }
-
-    /**
-     * Set bucket name
-     * @param string $bucket
-     * @return $this
-     */
-    public function setBucket($bucket) {
-        $this->bucket = $bucket;
-    }
+    
 
     public function attributes() {
         return array_keys([
