@@ -64,6 +64,7 @@ abstract class FileModel extends RiakModel
         ];
 
         $this->file = $filePath;
+        return $this->fileInfo;
     }
     private function getFileContents(){
         $f = fopen($this->file, 'r');
