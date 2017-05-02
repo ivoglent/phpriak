@@ -1,5 +1,5 @@
 # phpriak
-PHP component for communication with Riak database
+PHP component for communicate with Riak database
 ## To install run command below
 ```
 composer require ivoglent/phpriak --prefer-dist -vvv --profile
